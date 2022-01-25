@@ -1,5 +1,6 @@
 package applicationwithmongoDB.service;
 
+import applicationwithmongoDB.DTO.UserDTO;
 import applicationwithmongoDB.entity.User;
 import applicationwithmongoDB.repositoryMongoBD.UserRepository;
 import applicationwithmongoDB.service.exception.ObjectNotFoundException;
@@ -22,5 +23,13 @@ public class UserService {
     public User findById(String id){
         Optional<User> obj = userRepository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
+
+    public User create (User entity){
+        return userRepository.save(entity);
+    }
+
+    public User fromDTO(UserDTO userDTO){
+        return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail());
     }
 }
