@@ -31,6 +31,7 @@ public class UserController {
         User user = userService.findById(id);
         return ResponseEntity.ok().body(new UserDTO(user));
     }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> create(@RequestBody UserDTO userDTO){
         User user = userService.fromDTO(userDTO);
@@ -51,5 +52,11 @@ public class UserController {
         user.setId(id);
         user = userService.update(user);
         return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+    public ResponseEntity<?> findPosts(@PathVariable String id){
+        User user = userService.findById(id);
+        return ResponseEntity.ok().body(user.getPost());
     }
 }
