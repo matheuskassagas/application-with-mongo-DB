@@ -43,7 +43,10 @@ public class ApplicationWithMongoDbApplication implements CommandLineRunner {
 
 		Post post1 = new Post(null, sdf.parse("21;03;2018"), "Partiu Viagem", "Vou viajar para São Paulo. Abraços!", new AuthorDTO(maria));
 		Post post2 = new Post(null, sdf.parse("23;03;2018"), "Bom Dia", "Acordei Feliz Hoje!", new AuthorDTO(maria));
-		
+
 		postRepository.saveAll(Arrays.asList(post1, post2));
+
+		maria.getPost().addAll(Arrays.asList(post1, post2));
+		userRepository.save(maria);
 	}
 }
