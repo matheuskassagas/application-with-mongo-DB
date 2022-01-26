@@ -1,6 +1,6 @@
 package applicationwithmongoDB.DTO;
 
-import applicationwithmongoDB.entity.User;
+import applicationwithmongoDB.repositoryMongoBD.entity.User;
 
 import java.io.Serializable;
 

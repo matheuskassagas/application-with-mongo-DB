@@ -1,7 +1,7 @@
 package applicationwithmongoDB.service;
 
 import applicationwithmongoDB.DTO.UserDTO;
-import applicationwithmongoDB.entity.User;
+import applicationwithmongoDB.repositoryMongoBD.entity.User;
 import applicationwithmongoDB.repositoryMongoBD.UserRepository;
 import applicationwithmongoDB.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
